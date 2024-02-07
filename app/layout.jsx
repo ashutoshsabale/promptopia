@@ -1,5 +1,7 @@
 import "@styles/globals.css";
 
+import { Suspense } from "react";
+
 import Nav from "@components/Nav";
 import Provider from "@components/Provider";
 
@@ -19,7 +21,9 @@ function rootLayout({children}) {
 
                 <main className="app">
                     <Nav />
-                    {children}
+                    <Suspense fallback={<div>Loading...</div>}>
+                        {children}
+                    </Suspense>
                 </main>
             </Provider>
         </body>
